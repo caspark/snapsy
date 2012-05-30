@@ -53,9 +53,9 @@ namespace TiffViewerCtl
             this.tsZoomOut = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsStretch = new System.Windows.Forms.ToolStripButton();
+            this.tsOneToOne = new System.Windows.Forms.ToolStripButton();
             this.tiffviewer1 = new TiffViewer.UTiffViewer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.tsOneToOne = new System.Windows.Forms.ToolStripButton();
             this.tStrip.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -65,16 +65,17 @@ namespace TiffViewerCtl
             // tStrip
             // 
             this.tStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.tStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsZoomPlus,
-            this.tsZoom,
             this.tsZoomOut,
+            this.tsZoom,
+            this.tsZoomPlus,
             this.toolStripSeparator1,
             this.tsStretch,
             this.tsOneToOne});
             this.tStrip.Location = new System.Drawing.Point(3, 0);
             this.tStrip.Name = "tStrip";
-            this.tStrip.Size = new System.Drawing.Size(176, 25);
+            this.tStrip.Size = new System.Drawing.Size(136, 25);
             this.tStrip.TabIndex = 7;
             this.tStrip.Text = "toolStrip1";
             // 
@@ -121,6 +122,16 @@ namespace TiffViewerCtl
             this.tsStretch.ToolTipText = "Scale";
             this.tsStretch.Click += new System.EventHandler(this.tsStretch_Click);
             // 
+            // tsOneToOne
+            // 
+            this.tsOneToOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsOneToOne.Image = ((System.Drawing.Image)(resources.GetObject("tsOneToOne.Image")));
+            this.tsOneToOne.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsOneToOne.Name = "tsOneToOne";
+            this.tsOneToOne.Size = new System.Drawing.Size(23, 22);
+            this.tsOneToOne.Text = "One to One Zoom";
+            this.tsOneToOne.Click += new System.EventHandler(this.tsOneToOne_Click);
+            // 
             // tiffviewer1
             // 
             this.tiffviewer1.AutoScroll = true;
@@ -150,16 +161,6 @@ namespace TiffViewerCtl
             // toolStripContainer1.TopToolStripPanel
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tStrip);
-            // 
-            // tsOneToOne
-            // 
-            this.tsOneToOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsOneToOne.Image = ((System.Drawing.Image)(resources.GetObject("tsOneToOne.Image")));
-            this.tsOneToOne.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsOneToOne.Name = "tsOneToOne";
-            this.tsOneToOne.Size = new System.Drawing.Size(23, 22);
-            this.tsOneToOne.Text = "One to One Zoom";
-            this.tsOneToOne.Click += new System.EventHandler(this.tsOneToOne_Click);
             // 
             // UTiffViewerCtl
             // 
