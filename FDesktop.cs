@@ -18,6 +18,8 @@ namespace NAPS
     public partial class FDesktop : Form
     {
         private SortedList<int, CScannedImage> images;
+        private CScanSettings lastProfile = null;
+
         public FDesktop()
         {
             InitializeComponent();
@@ -268,6 +270,21 @@ namespace NAPS
             pdfdialog.ShowDialog(this);
         }
 
+        private void quickScan_Click(object sender, EventArgs e)
+        {
+            if (lastProfile == null)
+            {
+                tsScan_Click(sender, e);
+            }
+            else
+            {
+                if (lastProfile.DeviceDriver == CScanSettings.Driver.WIA)
+                    scanWIA(lastProfile);
+                else
+                    scanTWAIN(lastProfile.DeviceID);
+            }
+        }
+
         private void tsScan_Click(object sender, EventArgs e)
         {
             //demoScan();
@@ -278,6 +295,8 @@ namespace NAPS
 
             if (prof.Profile == null)
                 return;
+            else
+                lastProfile = prof.Profile;
 
             if (prof.Profile.DeviceDriver == CScanSettings.Driver.WIA)
                 scanWIA(prof.Profile);
