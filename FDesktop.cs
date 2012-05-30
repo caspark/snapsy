@@ -30,7 +30,7 @@ namespace NAPS
         private void thumbnailList1_ItemActivate(object sender, EventArgs e)
         {
             FViewer viewer = new FViewer(images[(int)thumbnailList1.SelectedItems[0].Tag].BaseImage);
-            viewer.ShowDialog();
+            viewer.Show();
         }
 
         private void updateView()
