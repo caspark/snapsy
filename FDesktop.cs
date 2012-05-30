@@ -17,7 +17,7 @@ namespace NAPS
 {
     public partial class FDesktop : Form
     {
-        private SortedList<int,CScannedImage> images;
+        private SortedList<int, CScannedImage> images;
         public FDesktop()
         {
             InitializeComponent();
@@ -93,7 +93,7 @@ namespace NAPS
             CTWAINAPI twa;
             try
             {
-                twa = new CTWAINAPI(DeviceName,this);
+                twa = new CTWAINAPI(DeviceName, this);
             }
             catch (Exceptions.EScannerNotFound)
             {
@@ -197,7 +197,7 @@ namespace NAPS
             if (thumbnailList1.SelectedItems.Count > 0)
             {
                 foreach (ListViewItem it in thumbnailList1.SelectedItems)
-                { 
+                {
                     images[(int)it.Tag].RotateFlip(RotateFlipType.Rotate270FlipNone);
                 }
                 updateView();

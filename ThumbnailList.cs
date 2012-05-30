@@ -14,6 +14,7 @@ namespace NAPS
         {
             InitializeComponent();
             this.LargeImageList = ilThumbnailList;
+            ilThumbnailList.ImageSize = new Size(CScannedImage.thumbnailWidth, CScannedImage.thumbnailHeight);
         }
 
         public void UpdateImages(SortedList<int,CScannedImage> images)

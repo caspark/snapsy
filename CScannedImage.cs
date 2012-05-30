@@ -11,8 +11,8 @@ namespace NAPS
         private Bitmap baseImage;
         private Bitmap thumbnail;
 
-        private int thumbnailWidth = 128;
-        private int thumbnailHeight = 128;
+        public static int thumbnailWidth = 256;
+        public static int thumbnailHeight = 256;
         private CScanSettings.BitDepth bitDepth;
 
         public CScanSettings.BitDepth BitDepth
