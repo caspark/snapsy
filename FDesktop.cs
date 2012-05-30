@@ -12,6 +12,7 @@ using PdfSharp.Drawing;
 using NAPS.wia;
 using NAPS.twain;
 using WIA;
+using System.Drawing.Imaging;
 
 namespace NAPS
 {
@@ -255,11 +256,35 @@ namespace NAPS
                 newPage.Width = (int)realWidth;
                 newPage.Height = (int)realHeight;
                 XGraphics gfx = XGraphics.FromPdfPage(newPage);
-                gfx.DrawImage(img.BaseImage, 0, 0, (int)realWidth, (int)realHeight);
+                gfx.DrawImage(ImageToJpeg(img.BaseImage, 90), 0, 0, (int)realWidth, (int)realHeight);
                 i++;
             }
             document.Save(filename);
             dialog.Invoke(new ThreadStart(dialog.Close));
+        }
+
+        /// <summary>
+        /// Converts a given image to jpeg format with the given quality level
+        /// </summary>
+        /// <returns>Compressed image in jpeg format</returns>
+        private static Image ImageToJpeg(Image img, long quality)
+        {
+            MemoryStream memStream = new MemoryStream();
+            var encoderParameters = new EncoderParameters(1);
+            encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality);
+            img.Save(memStream, GetEncoder(ImageFormat.Jpeg), encoderParameters);
+            return Image.FromStream(memStream);
+        }
+
+        private static ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                    return codec;
+            }
+            return null;
         }
 
         private void exportPDF(string filename)
