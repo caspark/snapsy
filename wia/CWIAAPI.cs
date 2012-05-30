@@ -49,7 +49,7 @@ namespace NAPS.wia
             {
                 d = WIACommonDialog.ShowSelectDevice(WiaDeviceType.ScannerDeviceType, true, false);
             }
-            catch(System.Runtime.InteropServices.COMException e)
+            catch (System.Runtime.InteropServices.COMException e)
             {
                 if ((uint)e.ErrorCode == NO_DEVICE_FOUND)
                 {
@@ -117,7 +117,7 @@ namespace NAPS.wia
             return 0;
         }
 
-        private void setDeviceIntProperty(int value,int propid)
+        private void setDeviceIntProperty(int value, int propid)
         {
             object objprop = value;
             foreach (WIA.Property property in device.Properties)
@@ -206,8 +206,8 @@ namespace NAPS.wia
             else
                 verticalSize = getDeviceIntProperty(VERTICAL_FEED_SIZE);
 
-           int pagemaxwidth = horizontalSize * resolution / 1000;
-           int pagemaxheight = verticalSize * resolution / 1000;
+            int pagemaxwidth = horizontalSize * resolution / 1000;
+            int pagemaxheight = verticalSize * resolution / 1000;
 
 
             int horizontalPos = 0;
@@ -295,6 +295,9 @@ namespace NAPS.wia
             try
             {
                 ImageFile file = (ImageFile)WIACommonDialog.ShowTransfer(items[1], "{B96B3CAB-0728-11D3-9D7B-0000F81EF32E}", false);
+                if (file == null) //user cancelled the scanning process
+                    return null;
+
                 System.IO.MemoryStream stream = new System.IO.MemoryStream((byte[])file.FileData.get_BinaryData());
                 output = Image.FromStream(stream);
 
