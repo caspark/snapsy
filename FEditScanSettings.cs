@@ -41,6 +41,8 @@ namespace NAPS
             try
             {
                 devID = CWIAAPI.SelectDeviceUI();
+                if (devID == null) //user cancelled out of selection dialog
+                    return;
             }
             catch (Exceptions.ENoScannerFound)
             {

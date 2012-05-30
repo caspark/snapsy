@@ -37,6 +37,10 @@ namespace NAPS.wia
 
         private CScanSettings settings;
 
+        /// <summary>
+        /// Shows the dialog to select a device using the windows image acquisition api
+        /// </summary>
+        /// <returns>String id of selected device, or null if user cancelled out of dialog</returns>
         public static string SelectDeviceUI()
         {
             CommonDialogClass WIACommonDialog = new CommonDialogClass();
@@ -56,7 +60,7 @@ namespace NAPS.wia
                     throw e;
                 }
             }
-            return d.DeviceID;
+            return d == null ? null : d.DeviceID;
         }
 
         public CWIAAPI(string DeviceID)
