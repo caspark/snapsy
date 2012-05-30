@@ -7,8 +7,8 @@ using System.Windows.Forms;
 
 namespace TiffViewerCtl
 {
-	public class UTiffViewerCtl : System.Windows.Forms.UserControl
-	{
+    public class UTiffViewerCtl : System.Windows.Forms.UserControl
+    {
         private TiffViewer.UTiffViewer tiffviewer1;
         private ToolStrip tStrip;
         private ToolStripButton tsZoomPlus;
@@ -17,34 +17,35 @@ namespace TiffViewerCtl
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton tsStretch;
         private ToolStripContainer toolStripContainer1;
-		private System.ComponentModel.Container components = null;
+        private ToolStripButton tsOneToOne;
+        private System.ComponentModel.Container components = null;
 
-		public UTiffViewerCtl()
-		{
-			InitializeComponent();
-			tsStretch_Click(null,null);
-		}
+        public UTiffViewerCtl()
+        {
+            InitializeComponent();
+            tsStretch_Click(null, null);
+        }
 
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		
-		#region Component Designer generated code
-		/// <summary> 
-		/// Required method for Designer support - do not modify 
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+
+        #region Component Designer generated code
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UTiffViewerCtl));
             this.tStrip = new System.Windows.Forms.ToolStrip();
             this.tsZoomPlus = new System.Windows.Forms.ToolStripButton();
@@ -54,6 +55,7 @@ namespace TiffViewerCtl
             this.tsStretch = new System.Windows.Forms.ToolStripButton();
             this.tiffviewer1 = new TiffViewer.UTiffViewer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.tsOneToOne = new System.Windows.Forms.ToolStripButton();
             this.tStrip.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -68,10 +70,11 @@ namespace TiffViewerCtl
             this.tsZoom,
             this.tsZoomOut,
             this.toolStripSeparator1,
-            this.tsStretch});
+            this.tsStretch,
+            this.tsOneToOne});
             this.tStrip.Location = new System.Drawing.Point(3, 0);
             this.tStrip.Name = "tStrip";
-            this.tStrip.Size = new System.Drawing.Size(152, 25);
+            this.tStrip.Size = new System.Drawing.Size(176, 25);
             this.tStrip.TabIndex = 7;
             this.tStrip.Text = "toolStrip1";
             // 
@@ -88,7 +91,7 @@ namespace TiffViewerCtl
             // tsZoom
             // 
             this.tsZoom.Name = "tsZoom";
-            this.tsZoom.Size = new System.Drawing.Size(36, 22);
+            this.tsZoom.Size = new System.Drawing.Size(35, 22);
             this.tsZoom.Text = "100%";
             this.tsZoom.ToolTipText = "Zoom";
             // 
@@ -114,7 +117,7 @@ namespace TiffViewerCtl
             this.tsStretch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsStretch.Name = "tsStretch";
             this.tsStretch.Size = new System.Drawing.Size(23, 22);
-            this.tsStretch.Text = "toolStripButton1";
+            this.tsStretch.Text = "Stetch Text";
             this.tsStretch.ToolTipText = "Scale";
             this.tsStretch.Click += new System.EventHandler(this.tsStretch_Click);
             // 
@@ -148,6 +151,16 @@ namespace TiffViewerCtl
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tStrip);
             // 
+            // tsOneToOne
+            // 
+            this.tsOneToOne.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsOneToOne.Image = ((System.Drawing.Image)(resources.GetObject("tsOneToOne.Image")));
+            this.tsOneToOne.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsOneToOne.Name = "tsOneToOne";
+            this.tsOneToOne.Size = new System.Drawing.Size(23, 22);
+            this.tsOneToOne.Text = "One to One Zoom";
+            this.tsOneToOne.Click += new System.EventHandler(this.tsOneToOne_Click);
+            // 
             // UTiffViewerCtl
             // 
             this.Controls.Add(this.toolStripContainer1);
@@ -163,43 +176,43 @@ namespace TiffViewerCtl
             this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
 
-		}
-		#endregion
-		
-		private Image image;
+        }
+        #endregion
+
+        private Image image;
 
         private void TiffViewer_SizeChanged(object sender, System.EventArgs e)
-		{
-			if(tsStretch.Checked)
-			{
-				this.tiffviewer1.Zoom = (ushort)((double)(tiffviewer1.Width - 40) / ((double)tiffviewer1.ImageWidth / 100));
-				tsZoom.Text = tiffviewer1.Zoom.ToString() + "%";
-			}
-		}
+        {
+            if (tsStretch.Checked)
+            {
+                this.tiffviewer1.Zoom = (ushort)((double)(tiffviewer1.Width - 40) / ((double)tiffviewer1.ImageWidth / 100));
+                tsZoom.Text = tiffviewer1.Zoom.ToString() + "%";
+            }
+        }
 
-		public Image Image
-		{
-			get{return image;}
-			set
-			{
-				image = value;
-				this.tiffviewer1.image = value;
-				if(value == null)
-				{
-					tStrip.Enabled = false;
-					
-				}
-				else
-				{
+        public Image Image
+        {
+            get { return image; }
+            set
+            {
+                image = value;
+                this.tiffviewer1.image = value;
+                if (value == null)
+                {
+                    tStrip.Enabled = false;
+
+                }
+                else
+                {
                     tStrip.Enabled = true;
-				}
-				if(tsStretch.Checked)
-				{
-					this.tiffviewer1.Zoom = (ushort)((double)(tiffviewer1.Width - 40) / ((double)tiffviewer1.ImageWidth / 100));
-					tsZoom.Text = tiffviewer1.Zoom.ToString() + "%";
-				}
-			}
-		}
+                }
+                if (tsStretch.Checked)
+                {
+                    this.tiffviewer1.Zoom = (ushort)((double)(tiffviewer1.Width - 40) / ((double)tiffviewer1.ImageWidth / 100));
+                    tsZoom.Text = tiffviewer1.Zoom.ToString() + "%";
+                }
+            }
+        }
 
         private void tsZoomPlus_Click(object sender, EventArgs e)
         {
@@ -225,6 +238,13 @@ namespace TiffViewerCtl
                 tsZoom.Text = tiffviewer1.Zoom.ToString() + "%";
             }
         }
-		
-	}
+
+        private void tsOneToOne_Click(object sender, EventArgs e)
+        {
+            this.tiffviewer1.Zoom = 100;
+            tsStretch.Checked = false;
+            tsZoom.Text = "100%";
+        }
+
+    }
 }
