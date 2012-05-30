@@ -58,8 +58,8 @@ namespace NAPS
             this.cmbScale = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rdWIA = new System.Windows.Forms.RadioButton();
             this.rdTWAIN = new System.Windows.Forms.RadioButton();
+            this.rdWIA = new System.Windows.Forms.RadioButton();
             this.ilProfileIcons = new NAPS.ILProfileIcons(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trBrightnes)).BeginInit();
@@ -238,12 +238,12 @@ namespace NAPS
             // trBrightnes
             // 
             this.trBrightnes.Location = new System.Drawing.Point(15, 334);
-            this.trBrightnes.Maximum = 1000;
-            this.trBrightnes.Minimum = -1000;
+            this.trBrightnes.Maximum = 127;
+            this.trBrightnes.Minimum = -127;
             this.trBrightnes.Name = "trBrightnes";
-            this.trBrightnes.Size = new System.Drawing.Size(183, 42);
+            this.trBrightnes.Size = new System.Drawing.Size(183, 45);
             this.trBrightnes.TabIndex = 16;
-            this.trBrightnes.TickFrequency = 100;
+            this.trBrightnes.TickFrequency = 32;
             // 
             // label7
             // 
@@ -257,12 +257,12 @@ namespace NAPS
             // trContrast
             // 
             this.trContrast.Location = new System.Drawing.Point(235, 334);
-            this.trContrast.Maximum = 1000;
-            this.trContrast.Minimum = -1000;
+            this.trContrast.Maximum = 127;
+            this.trContrast.Minimum = -127;
             this.trContrast.Name = "trContrast";
-            this.trContrast.Size = new System.Drawing.Size(183, 42);
+            this.trContrast.Size = new System.Drawing.Size(183, 45);
             this.trContrast.TabIndex = 19;
-            this.trContrast.TickFrequency = 100;
+            this.trContrast.TickFrequency = 32;
             // 
             // btnCancel
             // 
@@ -356,6 +356,17 @@ namespace NAPS
             this.panel2.Size = new System.Drawing.Size(334, 23);
             this.panel2.TabIndex = 29;
             // 
+            // rdTWAIN
+            // 
+            this.rdTWAIN.AutoSize = true;
+            this.rdTWAIN.Location = new System.Drawing.Point(220, 4);
+            this.rdTWAIN.Name = "rdTWAIN";
+            this.rdTWAIN.Size = new System.Drawing.Size(92, 17);
+            this.rdTWAIN.TabIndex = 1;
+            this.rdTWAIN.TabStop = true;
+            this.rdTWAIN.Text = "TWAIN Driver";
+            this.rdTWAIN.UseVisualStyleBackColor = true;
+            // 
             // rdWIA
             // 
             this.rdWIA.AutoSize = true;
@@ -367,17 +378,6 @@ namespace NAPS
             this.rdWIA.Text = "WIA Driver";
             this.rdWIA.UseVisualStyleBackColor = true;
             this.rdWIA.CheckedChanged += new System.EventHandler(this.rdWIA_CheckedChanged);
-            // 
-            // rdTWAIN
-            // 
-            this.rdTWAIN.AutoSize = true;
-            this.rdTWAIN.Location = new System.Drawing.Point(220, 4);
-            this.rdTWAIN.Name = "rdTWAIN";
-            this.rdTWAIN.Size = new System.Drawing.Size(92, 17);
-            this.rdTWAIN.TabIndex = 1;
-            this.rdTWAIN.TabStop = true;
-            this.rdTWAIN.Text = "TWAIN Driver";
-            this.rdTWAIN.UseVisualStyleBackColor = true;
             // 
             // FEditScanSettings
             // 
