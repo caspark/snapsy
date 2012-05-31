@@ -46,6 +46,9 @@ namespace Snapsy
             // 
             // lvProfiles
             // 
+            this.lvProfiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvProfiles.HideSelection = false;
             this.lvProfiles.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
@@ -57,7 +60,7 @@ namespace Snapsy
             this.lvProfiles.Location = new System.Drawing.Point(12, 12);
             this.lvProfiles.MultiSelect = false;
             this.lvProfiles.Name = "lvProfiles";
-            this.lvProfiles.Size = new System.Drawing.Size(563, 80);
+            this.lvProfiles.Size = new System.Drawing.Size(563, 98);
             this.lvProfiles.TabIndex = 0;
             this.lvProfiles.UseCompatibleStateImageBehavior = false;
             this.lvProfiles.ItemActivate += new System.EventHandler(this.lvProfiles_ItemActivate);
@@ -66,7 +69,8 @@ namespace Snapsy
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 98);
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdd.Location = new System.Drawing.Point(12, 117);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -76,7 +80,8 @@ namespace Snapsy
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(93, 98);
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEdit.Location = new System.Drawing.Point(93, 117);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
@@ -86,7 +91,8 @@ namespace Snapsy
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(174, 97);
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.Location = new System.Drawing.Point(174, 117);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -96,7 +102,8 @@ namespace Snapsy
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(500, 98);
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Location = new System.Drawing.Point(501, 117);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -108,7 +115,7 @@ namespace Snapsy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 129);
+            this.ClientSize = new System.Drawing.Size(584, 147);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
