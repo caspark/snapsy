@@ -16,6 +16,7 @@ namespace Snapsy
 
         private string currentDeviceID;
         private bool result = false;
+        private bool isLoading = true;
 
         public bool Result
         {
@@ -175,7 +176,7 @@ namespace Snapsy
             pctIcon.Image = ilProfileIcons.IconsList.Images[ScanSettings.IconID];
             txtName.Text = ScanSettings.DisplayName;
             cmbSource.SelectedIndex = (int)ScanSettings.Source;
-            
+
 
             cmbDepth.SelectedIndex = (int)ScanSettings.Depth;
             cmbResolution.SelectedIndex = (int)ScanSettings.Resolution;
@@ -209,6 +210,8 @@ namespace Snapsy
                 else
                     loadTWAIN();
             }
+
+            isLoading = false;
         }
 
         private void pctIcon_DoubleClick(object sender, EventArgs e)
@@ -227,7 +230,8 @@ namespace Snapsy
             rdbNativeWIA.Checked = true;
             rdbNativeWIA.Enabled = rdWIA.Checked;
             rdbConfig.Enabled = rdWIA.Checked;
-            ScanSettings.DeviceID = "";
+            if (!isLoading)
+                ScanSettings.DeviceID = "";
             currentDeviceID = "";
             txtDevice.Text = "";
         }

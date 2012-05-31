@@ -66,6 +66,7 @@ namespace Snapsy.wia
         public CWIAAPI(string DeviceID)
         {
             settings = new CScanSettings();
+            settings.DeviceID = DeviceID;
             DeviceManager manager = new DeviceManagerClass();
             foreach (DeviceInfo info in manager.DeviceInfos)
             {
