@@ -241,9 +241,12 @@ namespace Snapsy
         {
             PdfDocument document = new PdfDocument();
             document.Layout = PdfSharp.Pdf.IO.PdfWriterLayout.Compact;
-            document.Info.Title = "Scanned Image";
-            document.Info.Subject = "Scanned Image";
-            document.Info.Author = "Snapsy PDF Scanner";
+
+            int nameStart = filename.LastIndexOf('\\') + 1;
+            document.Info.Title = filename.Substring(nameStart, filename.Length - nameStart - ".pdf".Length);
+            document.Info.Subject = document.Info.Title;
+            document.Info.Author = GetLoginName();
+            document.Info.Creator = "Snapsy PDF Scanner";
             int i = 1;
             foreach (CScannedImage img in images.Values)
             {
@@ -261,6 +264,11 @@ namespace Snapsy
             }
             document.Save(filename);
             dialog.Invoke(new ThreadStart(dialog.Close));
+        }
+
+        private static String GetLoginName()
+        {
+            return new System.Security.Principal.WindowsPrincipal(System.Security.Principal.WindowsIdentity.GetCurrent()).Identity.Name;
         }
 
         /// <summary>
