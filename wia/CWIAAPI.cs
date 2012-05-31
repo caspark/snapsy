@@ -63,6 +63,19 @@ namespace Snapsy.wia
             return d == null ? null : d.DeviceID;
         }
 
+        /// <summary>
+        /// Gets the device id of the first device found
+        /// </summary>
+        /// <returns>Device id of first device if there are any devices, null otherwise</returns>
+        public static string getFirstDeviceID()
+        {
+            DeviceManager manager = new DeviceManagerClass();
+            foreach (DeviceInfo info in manager.DeviceInfos)
+                return info.DeviceID;
+
+            return null;
+        }
+
         public CWIAAPI(string DeviceID)
         {
             settings = new CScanSettings();

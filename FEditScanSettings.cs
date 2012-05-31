@@ -202,14 +202,14 @@ namespace Snapsy
                 rdbConfig.Enabled = rdWIA.Checked;
             }
 
-
-            if (ScanSettings.DeviceID != "")
+            if (ScanSettings.DeviceDriver == CScanSettings.Driver.WIA)
             {
-                if (ScanSettings.DeviceDriver == CScanSettings.Driver.WIA)
-                    loadWIA();
-                else
-                    loadTWAIN();
+                if (ScanSettings.DeviceID == "")
+                    ScanSettings.DeviceID = CWIAAPI.getFirstDeviceID();
+                loadWIA();
             }
+            else
+                loadTWAIN();
 
             isLoading = false;
         }

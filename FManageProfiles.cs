@@ -47,7 +47,7 @@ namespace Snapsy
         private void btnEdit_Click(object sender, EventArgs e)
         {
             FEditScanSettings fedit = new FEditScanSettings();
-            fedit.ScanSettings =profiles[lvProfiles.SelectedItems[0].Index];
+            fedit.ScanSettings = profiles[lvProfiles.SelectedItems[0].Index];
             fedit.ShowDialog();
             if (fedit.Result)
             {
