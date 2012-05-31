@@ -1,4 +1,4 @@
-namespace NAPS
+namespace Snapsy
 {
     partial class FManageProfiles
     {
@@ -41,7 +41,7 @@ namespace NAPS
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.ilProfileIcons = new NAPS.ILProfileIcons(this.components);
+            this.ilProfileIcons = new Snapsy.ILProfileIcons(this.components);
             this.SuspendLayout();
             // 
             // lvProfiles

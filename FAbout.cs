@@ -5,14 +5,14 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace NAPS
+namespace Snapsy
 {
     partial class FAbout : Form
     {
         public FAbout()
         {
             InitializeComponent();
-            this.Text = String.Format("NAPS (Not Another PDF Scanner)");
+            this.Text = String.Format("About Snapsy - PDF Scanner");
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;

@@ -1,4 +1,4 @@
-namespace NAPS
+namespace Snapsy
 {
     partial class FEditScanSettings
     {
@@ -60,7 +60,7 @@ namespace NAPS
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdTWAIN = new System.Windows.Forms.RadioButton();
             this.rdWIA = new System.Windows.Forms.RadioButton();
-            this.ilProfileIcons = new NAPS.ILProfileIcons(this.components);
+            this.ilProfileIcons = new Snapsy.ILProfileIcons(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trBrightnes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trContrast)).BeginInit();

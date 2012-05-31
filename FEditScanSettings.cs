@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using NAPS.wia;
-using NAPS.twain;
+using Snapsy.wia;
+using Snapsy.twain;
 
-namespace NAPS
+namespace Snapsy
 {
     public partial class FEditScanSettings : Form
     {

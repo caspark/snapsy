@@ -9,12 +9,12 @@ using System.IO;
 using System.Threading;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
-using NAPS.wia;
-using NAPS.twain;
+using Snapsy.wia;
+using Snapsy.twain;
 using WIA;
 using System.Drawing.Imaging;
 
-namespace NAPS
+namespace Snapsy
 {
     public partial class FDesktop : Form
     {
@@ -243,7 +243,7 @@ namespace NAPS
             document.Layout = PdfSharp.Pdf.IO.PdfWriterLayout.Compact;
             document.Info.Title = "Scanned Image";
             document.Info.Subject = "Scanned Image";
-            document.Info.Author = "NAPS";
+            document.Info.Author = "Snapsy PDF Scanner";
             int i = 1;
             foreach (CScannedImage img in images.Values)
             {

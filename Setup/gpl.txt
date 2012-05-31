@@ -1,5 +1,6 @@
-NAPS (Not Another PDF Scanner)
-Copyright (C) 2009  Pavel Sorejs
+Snapsy - PDF Scanner
+Copyright (C) 2012  Caspar Krieger
+Copyright (C) 2007-2009  Pavel Sorejs (original code - http://sourceforge.net/projects/naps/)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

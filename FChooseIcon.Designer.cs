@@ -1,4 +1,4 @@
-namespace NAPS
+namespace Snapsy
 {
     partial class FChooseIcon
     {
@@ -30,7 +30,7 @@ namespace NAPS
         {
             this.components = new System.ComponentModel.Container();
             this.iconList = new System.Windows.Forms.ListView();
-            this.ilProfileIcons = new NAPS.ILProfileIcons(this.components);
+            this.ilProfileIcons = new Snapsy.ILProfileIcons(this.components);
             this.SuspendLayout();
             // 
             // iconList

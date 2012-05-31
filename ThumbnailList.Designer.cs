@@ -1,4 +1,4 @@
-namespace NAPS
+namespace Snapsy
 {
     partial class ThumbnailList
     {

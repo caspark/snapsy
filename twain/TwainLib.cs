@@ -3,7 +3,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace NAPS.twain
+namespace Snapsy.twain
 {
 public enum TwainCommand
 	{

@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NAPS
+namespace Snapsy
 {
     public class CPageSizes
     {

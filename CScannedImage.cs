@@ -4,7 +4,7 @@ using System.Text;
 using System.Drawing.Imaging;
 using System.Drawing;
 
-namespace NAPS
+namespace Snapsy
 {
     public class CScannedImage
     {

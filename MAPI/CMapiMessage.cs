@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.IO;
 
-namespace NAPS.MAPI
+namespace Snapsy.MAPI
 {
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     class CMapiMessage

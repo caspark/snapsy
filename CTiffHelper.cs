@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace NAPS
+namespace Snapsy
 {
     class CTiffHelper
     {

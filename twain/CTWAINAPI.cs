@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace NAPS.twain
+namespace Snapsy.twain
 {
     public class CTWAINAPI
     {

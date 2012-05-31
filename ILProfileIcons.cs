@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace NAPS
+namespace Snapsy
 {
     public partial class ILProfileIcons : Component
     {

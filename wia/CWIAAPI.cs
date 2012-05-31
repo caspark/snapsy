@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 
 using WIA;
 
-namespace NAPS.wia
+namespace Snapsy.wia
 {
     class CWIAAPI
     {

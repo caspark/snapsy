@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Windows.Forms;
 
-namespace NAPS
+namespace Snapsy
 {
     class CSettings
     {

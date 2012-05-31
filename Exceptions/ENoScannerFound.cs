@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NAPS.Exceptions
+namespace Snapsy.Exceptions
 {
     class ENoScannerFound : Exception
     {

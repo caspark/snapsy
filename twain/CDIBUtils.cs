@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace NAPS.twain
+namespace Snapsy.twain
 {
     public class CDIBUtils
     {

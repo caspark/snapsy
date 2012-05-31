@@ -1,4 +1,4 @@
-﻿namespace NAPS.twain
+﻿namespace Snapsy.twain
 {
     partial class FTwainGui
     {

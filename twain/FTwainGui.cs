@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace NAPS.twain
+namespace Snapsy.twain
 {
     public partial class FTwainGui : Form, IMessageFilter
     {

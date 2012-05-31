@@ -2,16 +2,16 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [Setup]
-AppName=NAPS (Not Another PDF Scanner)
-AppVerName=NAPS 1.0
-AppPublisher=Pavel Sorejs
+AppName=Snapsy - PDF Scanner
+AppVerName=Snapsy 1.1
+AppPublisher=Caspar Krieger
 AppPublisherURL=http://www.sourceforge.net/projects/naps
 AppSupportURL=http://www.sourceforge.net/projects/naps
 AppUpdatesURL=http://www.sourceforge.net/projects/naps
-DefaultDirName={pf}\NAPS
-DefaultGroupName=NAPS
+DefaultDirName={pf}\Snapsy
+DefaultGroupName=Snapsy
 OutputDir=output
-OutputBaseFilename=naps-setup
+OutputBaseFilename=snapsy-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -24,13 +24,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\bin\Debug\NAPS.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\Debug\Snapsy.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\lib\PdfSharp.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\lib\Interop.WIA.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\setup\wiaaut.dll"; DestDir: "{sys}"; Flags: regserver
 
 [Icons]
-Name: "{group}\NAPS"; Filename: "{app}\NAPS.exe"
-Name: "{group}\{cm:UninstallProgram,NAPS}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\NAPS"; Filename: "{app}\NAPS.exe"; Tasks: desktopicon
+Name: "{group}\Snapsy"; Filename: "{app}\Snapsy.exe"
+Name: "{group}\{cm:UninstallProgram,Snapsy}"; Filename: "{uninstallexe}"
+Name: "{commondesktop}\Snapsy"; Filename: "{app}\Snapsy.exe"; Tasks: desktopicon
 

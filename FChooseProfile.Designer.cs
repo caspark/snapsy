@@ -1,4 +1,4 @@
-namespace NAPS
+namespace Snapsy
 {
     partial class FChooseProfile
     {
@@ -31,7 +31,7 @@ namespace NAPS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FChooseProfile));
             this.lvProfiles = new System.Windows.Forms.ListView();
-            this.ilProfileIcons = new NAPS.ILProfileIcons(this.components);
+            this.ilProfileIcons = new Snapsy.ILProfileIcons(this.components);
             this.SuspendLayout();
             // 
             // lvProfiles

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace NAPS
+namespace Snapsy
 {
     public partial class FChooseProfile : Form
     {

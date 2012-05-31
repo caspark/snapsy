@@ -1,4 +1,4 @@
-namespace NAPS
+namespace Snapsy
 {
     partial class FDesktop
     {
@@ -30,6 +30,7 @@ namespace NAPS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FDesktop));
             this.tStrip = new System.Windows.Forms.ToolStrip();
+            this.quickScan = new System.Windows.Forms.ToolStripButton();
             this.tsScan = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsSavePDF = new System.Windows.Forms.ToolStripButton();
@@ -47,8 +48,7 @@ namespace NAPS
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.thumbnailList1 = new NAPS.ThumbnailList();
-            this.quickScan = new System.Windows.Forms.ToolStripButton();
+            this.thumbnailList1 = new Snapsy.ThumbnailList();
             this.tStrip.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -81,9 +81,19 @@ namespace NAPS
             this.tStrip.Location = new System.Drawing.Point(3, 0);
             this.tStrip.Name = "tStrip";
             this.tStrip.ShowItemToolTips = false;
-            this.tStrip.Size = new System.Drawing.Size(981, 54);
+            this.tStrip.Size = new System.Drawing.Size(979, 54);
             this.tStrip.TabIndex = 12;
             this.tStrip.Text = "Main toolbar";
+            // 
+            // quickScan
+            // 
+            this.quickScan.Image = ((System.Drawing.Image)(resources.GetObject("quickScan.Image")));
+            this.quickScan.ImageTransparentColor = System.Drawing.Color.White;
+            this.quickScan.Name = "quickScan";
+            this.quickScan.Size = new System.Drawing.Size(70, 51);
+            this.quickScan.Text = "Quick Scan";
+            this.quickScan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.quickScan.Click += new System.EventHandler(this.quickScan_Click);
             // 
             // tsScan
             // 
@@ -260,16 +270,6 @@ namespace NAPS
             this.thumbnailList1.ItemActivate += new System.EventHandler(this.thumbnailList1_ItemActivate);
             this.thumbnailList1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.thumbnailList1_KeyDown);
             // 
-            // quickScan
-            // 
-            this.quickScan.Image = ((System.Drawing.Image)(resources.GetObject("quickScan.Image")));
-            this.quickScan.ImageTransparentColor = System.Drawing.Color.White;
-            this.quickScan.Name = "quickScan";
-            this.quickScan.Size = new System.Drawing.Size(70, 51);
-            this.quickScan.Text = "Quick Scan";
-            this.quickScan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.quickScan.Click += new System.EventHandler(this.quickScan_Click);
-            // 
             // FDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,7 +278,7 @@ namespace NAPS
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FDesktop";
-            this.Text = "NotAnotherPdfScanner";
+            this.Text = "Snapsy - PDF Scanner";
             this.tStrip.ResumeLayout(false);
             this.tStrip.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
