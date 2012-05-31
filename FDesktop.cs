@@ -259,7 +259,7 @@ namespace Snapsy
                 newPage.Width = (int)realWidth;
                 newPage.Height = (int)realHeight;
                 XGraphics gfx = XGraphics.FromPdfPage(newPage);
-                gfx.DrawImage(ImageToJpeg(img.BaseImage, 90), 0, 0, (int)realWidth, (int)realHeight);
+                gfx.DrawImage(ConvertImageToFormat(img.BaseImage, ImageFormat.Jpeg, 90), 0, 0, (int)realWidth, (int)realHeight);
                 i++;
             }
             document.Save(filename);
@@ -275,12 +275,12 @@ namespace Snapsy
         /// Converts a given image to jpeg format with the given quality level
         /// </summary>
         /// <returns>Compressed image in jpeg format</returns>
-        private static Image ImageToJpeg(Image img, long quality)
+        private static Image ConvertImageToFormat(Image img, ImageFormat format, long quality)
         {
             MemoryStream memStream = new MemoryStream();
             var encoderParameters = new EncoderParameters(1);
             encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality);
-            img.Save(memStream, GetEncoder(ImageFormat.Jpeg), encoderParameters);
+            img.Save(memStream, GetEncoder(format), encoderParameters);
             return Image.FromStream(memStream);
         }
 
@@ -361,44 +361,61 @@ namespace Snapsy
                 SaveFileDialog sd = new SaveFileDialog();
                 sd.OverwritePrompt = true;
                 sd.AddExtension = true;
-                sd.Filter = "Bitmap Files (*.bmp)|*.bmp" +
-                "|Enhanced Windows MetaFile (*.emf)|*.emf" +
-                "|Exchangeable Image File (*.exif)|*.exif" +
-                "|Gif Files (*.gif)|*.gif|JPEG Files (*.jpg)|*.jpg" +
-                "|PNG Files (*.png)|*.png|TIFF Files (*.tif)|*.tif";
-                sd.DefaultExt = "png";
-                sd.FilterIndex = 6;
+                sd.Filter = "Supported image files (*.jpg;*.jpeg;*.gif;*.png;*.bmp;*.tif)|*.jpg;*.jpeg;*.gif;*.png;*.bmp;*.tif";
+                sd.DefaultExt = "jpg";
 
-                if (sd.ShowDialog() == DialogResult.OK)
+                if (sd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                if (Path.GetExtension(sd.FileName) == ".tif")
                 {
-                    int i = 0;
-
+                    Image[] imgs = new Image[images.Values.Count];
+                    for (int i = 0; i < images.Values.Count; i++)
+                        imgs[i] = images.Values[i].BaseImage;
+                    CTiffHelper.SaveMultipage(imgs, sd.FileName);
+                }
+                else
+                {
                     if (images.Count == 1)
-                    {
                         images.Values[0].BaseImage.Save(sd.FileName);
-                        return;
-                    }
-
-                    if (sd.FilterIndex == 7)
-                    {
-                        Image[] imgs = new Image[images.Count];
-                        foreach (CScannedImage img in images.Values)
+                    else
+                        for (int i = 0; i < images.Values.Count; i++)
                         {
-                            imgs[i] = img.BaseImage;
-                            i++;
+                            string filename = Path.GetDirectoryName(sd.FileName) + "\\" + Path.GetFileNameWithoutExtension(sd.FileName) + " " + i.ToString().PadLeft(images.Values.Count / 10, '0') + Path.GetExtension(sd.FileName);
+                            saveImageToFilename(images.Values[i].BaseImage, filename);
                         }
-                        CTiffHelper.SaveMultipage(imgs, sd.FileName);
-                        return;
-                    }
-
-                    foreach (CScannedImage img in images.Values)
-                    {
-                        string filename = Path.GetDirectoryName(sd.FileName) + "\\" + Path.GetFileNameWithoutExtension(sd.FileName) + i.ToString().PadLeft(3, '0') + Path.GetExtension(sd.FileName);
-                        img.BaseImage.Save(filename);
-                        i++;
-                    }
                 }
             }
+        }
+        /// <summary>
+        /// Saves images in bmp, emf, exif, gif, jpg or png format depending on the file extension in filename
+        /// </summary>
+        /// <param name="img">Image to save</param>
+        /// <param name="filename">Full filename to save to, including path + extension</param>
+        private static void saveImageToFilename(Image img, String filename)
+        {
+            Image convertedImage = null;
+            switch (Path.GetExtension(filename))
+            {
+                case ".bmp":
+                    convertedImage = ConvertImageToFormat(img, ImageFormat.Bmp, 100);
+                    break;
+                case ".gif":
+                    convertedImage = ConvertImageToFormat(img, ImageFormat.Gif, 100);
+                    break;
+                case ".jpg":
+                case ".jpeg":
+                    convertedImage = ConvertImageToFormat(img, ImageFormat.Jpeg, 100);
+                    break;
+                case ".png":
+                    convertedImage = ConvertImageToFormat(img, ImageFormat.Png, 100);
+                    break;
+                default:
+                    MessageBox.Show("Don't know how to save in " + Path.GetExtension(filename) + " format; please enter a known format (.bmp, .gif, .jpg, .jpeg, or .png)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            convertedImage.Save(filename);
         }
 
         private void tsPDFEmail_Click(object sender, EventArgs e)
