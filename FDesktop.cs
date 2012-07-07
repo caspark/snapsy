@@ -267,6 +267,7 @@ namespace Snapsy
             }
             document.Save(filename);
             dialog.Invoke(new ThreadStart(dialog.Close));
+            System.Diagnostics.Process.Start(filename);
         }
 
         private static String GetLoginName()
