@@ -84,7 +84,7 @@ namespace Snapsy
             scanSettigs.ShowScanUI = rdbNativeWIA.Checked;
             scanSettigs.Depth = (CScanSettings.BitDepth)cmbDepth.SelectedIndex;
             scanSettigs.Resolution = (CScanSettings.DPI)cmbResolution.SelectedIndex;
-            scanSettigs.Brightnes = trBrightnes.Value;
+            scanSettigs.Brightness = trBrightnes.Value;
             scanSettigs.Contrast = trContrast.Value;
             scanSettigs.DisplayName = txtName.Text;
             scanSettigs.PageSize = (CPageSizes.PageSize)cmbPage.SelectedIndex;
@@ -181,7 +181,7 @@ namespace Snapsy
             cmbDepth.SelectedIndex = (int)ScanSettings.Depth;
             cmbResolution.SelectedIndex = (int)ScanSettings.Resolution;
             trContrast.Value = ScanSettings.Contrast;
-            trBrightnes.Value = ScanSettings.Brightnes;
+            trBrightnes.Value = ScanSettings.Brightness;
             cmbPage.SelectedIndex = (int)ScanSettings.PageSize;
             cmbScale.SelectedIndex = (int)ScanSettings.AfterScanScale;
             cmbAlign.SelectedIndex = (int)ScanSettings.PageAlign;

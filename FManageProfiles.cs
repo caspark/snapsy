@@ -74,8 +74,9 @@ namespace Snapsy
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you really want to delete " + profiles[lvProfiles.SelectedItems[0].Index].DisplayName, "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                profiles.RemoveAt(lvProfiles.SelectedItems[0].Index);
+            {                                              
+                var toDeleteIndex = lvProfiles.SelectedItems[0].Index;
+                profiles.RemoveAt(toDeleteIndex);
                 loadList();
                 CSettings.SaveProfiles(profiles);
                 lvProfiles_SelectedIndexChanged(null, null);

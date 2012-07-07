@@ -237,7 +237,7 @@ namespace Snapsy.wia
             setItemIntProperty(item, pageHeight, VERTICAL_EXTENT);
             setItemIntProperty(item, horizontalPos, HORIZONTAL_START);
             setItemIntProperty(item, settings.Contrast, CONTRAST);
-            setItemIntProperty(item, settings.Brightnes, BRIGHTNESS);
+            setItemIntProperty(item, settings.Brightness, BRIGHTNESS);
         }
 
         private void setupDevice()

@@ -55,7 +55,7 @@ namespace Snapsy
 
         private ScanSource source;
         private DPI resolution;
-        private int brightnes;
+        private int brightness;
         private int contrast;
         private bool showScanUI;
         private BitDepth depth;
@@ -109,8 +109,8 @@ namespace Snapsy
 
         public string DeviceID
         {
-            get{ return deviceID;}
-            set{deviceID = value;}
+            get { return deviceID; }
+            set { deviceID = value; }
         }
 
         public Driver DeviceDriver
@@ -118,7 +118,7 @@ namespace Snapsy
             get { return deviceDriver; }
             set { deviceDriver = value; }
         }
-        
+
         public ScanSource Source
         {
             get { return source; }
@@ -137,10 +137,10 @@ namespace Snapsy
             set { contrast = value; }
         }
 
-        public int Brightnes
+        public int Brightness
         {
-            get { return brightnes; }
-            set { brightnes = value; }
+            get { return brightness; }
+            set { brightness = value; }
         }
 
         public CScanSettings()
@@ -153,7 +153,7 @@ namespace Snapsy
             Source = ScanSource.GLASS;
             Resolution = DPI.DPI200;
             Contrast = 0;
-            Brightnes = 0;
+            Brightness = 0;
             PageSize = CPageSizes.PageSize.A4;
             PageAlign = HorizontalAlign.CENTER;
             AfterScanScale = Scale.ONETOONE;

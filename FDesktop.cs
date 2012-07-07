@@ -19,7 +19,7 @@ namespace Snapsy
     public partial class FDesktop : Form
     {
         private SortedList<int, CScannedImage> images;
-        private CScanSettings lastProfile = null;
+        public static CScanSettings LastProfile { get; set; }
 
         public FDesktop()
         {
@@ -223,6 +223,9 @@ namespace Snapsy
         {
             switch (e.KeyCode)
             {
+                case Keys.Space:
+                    quickScan_Click(null, null);
+                    break;
                 case Keys.Delete:
                     deleteItems();
                     break;
@@ -305,16 +308,16 @@ namespace Snapsy
 
         private void quickScan_Click(object sender, EventArgs e)
         {
-            if (lastProfile == null)
+            if (LastProfile == null)
             {
                 tsScan_Click(sender, e);
             }
             else
             {
-                if (lastProfile.DeviceDriver == CScanSettings.Driver.WIA)
-                    scanWIA(lastProfile);
+                if (LastProfile.DeviceDriver == CScanSettings.Driver.WIA)
+                    scanWIA(LastProfile);
                 else
-                    scanTWAIN(lastProfile.DeviceID);
+                    scanTWAIN(LastProfile.DeviceID);
             }
         }
 
@@ -329,7 +332,7 @@ namespace Snapsy
             if (prof.Profile == null)
                 return;
             else
-                lastProfile = prof.Profile;
+                LastProfile = prof.Profile;
 
             if (prof.Profile.DeviceDriver == CScanSettings.Driver.WIA)
                 scanWIA(prof.Profile);
@@ -463,6 +466,15 @@ namespace Snapsy
         private void tsExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to delete ALL scanned items?", "Delete All Items?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                images.Clear();
+                thumbnailList1.UpdateImages(images);
+            }
         }
     }
 }

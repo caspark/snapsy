@@ -49,6 +49,8 @@ namespace Snapsy
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.thumbnailList1 = new Snapsy.ThumbnailList();
+            this.deleteAll = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tStrip.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -61,8 +63,8 @@ namespace Snapsy
             this.tStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.tStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quickScan,
             this.tsScan,
+            this.quickScan,
             this.toolStripSeparator5,
             this.tsSavePDF,
             this.tsSaveImage,
@@ -74,6 +76,8 @@ namespace Snapsy
             this.tsRotateLeft,
             this.tsRotateRight,
             this.toolStripSeparator2,
+            this.deleteAll,
+            this.toolStripSeparator6,
             this.tsProfiles,
             this.tsAbout,
             this.toolStripSeparator1,
@@ -81,7 +85,7 @@ namespace Snapsy
             this.tStrip.Location = new System.Drawing.Point(3, 0);
             this.tStrip.Name = "tStrip";
             this.tStrip.ShowItemToolTips = false;
-            this.tStrip.Size = new System.Drawing.Size(979, 54);
+            this.tStrip.Size = new System.Drawing.Size(981, 54);
             this.tStrip.TabIndex = 12;
             this.tStrip.Text = "Main toolbar";
             // 
@@ -91,7 +95,7 @@ namespace Snapsy
             this.quickScan.ImageTransparentColor = System.Drawing.Color.White;
             this.quickScan.Name = "quickScan";
             this.quickScan.Size = new System.Drawing.Size(70, 51);
-            this.quickScan.Text = "Quick Scan";
+            this.quickScan.Text = "Scan Again";
             this.quickScan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.quickScan.Click += new System.EventHandler(this.quickScan_Click);
             // 
@@ -154,8 +158,7 @@ namespace Snapsy
             this.tsMoveUp.Image = ((System.Drawing.Image)(resources.GetObject("tsMoveUp.Image")));
             this.tsMoveUp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsMoveUp.Name = "tsMoveUp";
-            this.tsMoveUp.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.tsMoveUp.Size = new System.Drawing.Size(79, 51);
+            this.tsMoveUp.Size = new System.Drawing.Size(59, 51);
             this.tsMoveUp.Text = "Move Up";
             this.tsMoveUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsMoveUp.Click += new System.EventHandler(this.tsMoveUp_Click);
@@ -165,8 +168,7 @@ namespace Snapsy
             this.tsMoveDown.Image = ((System.Drawing.Image)(resources.GetObject("tsMoveDown.Image")));
             this.tsMoveDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsMoveDown.Name = "tsMoveDown";
-            this.tsMoveDown.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.tsMoveDown.Size = new System.Drawing.Size(95, 51);
+            this.tsMoveDown.Size = new System.Drawing.Size(75, 51);
             this.tsMoveDown.Text = "Move Down";
             this.tsMoveDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsMoveDown.Click += new System.EventHandler(this.tsMoveDown_Click);
@@ -181,8 +183,7 @@ namespace Snapsy
             this.tsRotateLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsRotateLeft.Image")));
             this.tsRotateLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsRotateLeft.Name = "tsRotateLeft";
-            this.tsRotateLeft.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.tsRotateLeft.Size = new System.Drawing.Size(88, 51);
+            this.tsRotateLeft.Size = new System.Drawing.Size(68, 51);
             this.tsRotateLeft.Text = "Rotate Left";
             this.tsRotateLeft.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsRotateLeft.Click += new System.EventHandler(this.tsRotateLeft_Click);
@@ -192,8 +193,7 @@ namespace Snapsy
             this.tsRotateRight.Image = ((System.Drawing.Image)(resources.GetObject("tsRotateRight.Image")));
             this.tsRotateRight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsRotateRight.Name = "tsRotateRight";
-            this.tsRotateRight.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.tsRotateRight.Size = new System.Drawing.Size(96, 51);
+            this.tsRotateRight.Size = new System.Drawing.Size(76, 51);
             this.tsRotateRight.Text = "Rotate Right";
             this.tsRotateRight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsRotateRight.Click += new System.EventHandler(this.tsRotateRight_Click);
@@ -270,6 +270,21 @@ namespace Snapsy
             this.thumbnailList1.ItemActivate += new System.EventHandler(this.thumbnailList1_ItemActivate);
             this.thumbnailList1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.thumbnailList1_KeyDown);
             // 
+            // deleteAll
+            // 
+            this.deleteAll.Image = ((System.Drawing.Image)(resources.GetObject("deleteAll.Image")));
+            this.deleteAll.ImageTransparentColor = System.Drawing.Color.White;
+            this.deleteAll.Name = "deleteAll";
+            this.deleteAll.Size = new System.Drawing.Size(61, 51);
+            this.deleteAll.Text = "Delete All";
+            this.deleteAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.deleteAll.Click += new System.EventHandler(this.deleteAll_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 54);
+            // 
             // FDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +327,8 @@ namespace Snapsy
         private ThumbnailList thumbnailList1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStripButton quickScan;
+        private System.Windows.Forms.ToolStripButton deleteAll;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     }
 }
 
